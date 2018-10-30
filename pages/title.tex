@@ -2,12 +2,12 @@
   \centering
 
   \IfFileExists{logos/tum.pdf}{%
-    \includegraphics[height=15mm]{logos/tum.pdf}
+    \includegraphics[height=20mm]{logos/tum.pdf}
   }{%
     \vspace*{20mm}
   }
 
-  \vspace{10mm}
+  \vspace{5mm}
   {\huge\MakeUppercase{\getFaculty{}}}\\
 
   \vspace{5mm}
@@ -16,11 +16,22 @@
   \vspace{20mm}
   {\Large \getDoctype{}}
 
+  \makeatletter
   \vspace{15mm}
+  \ifthenelse{\pdf@strcmp{\languagename}{english}=0}
+  {
   {\huge\bfseries \getTitle{}}
 
   \vspace{10mm}
   {\huge\bfseries \foreignlanguage{ngerman}{\getTitleGer{}}}
+  }
+  {
+  {\huge\bfseries \getTitleGer{}}
+
+  \vspace{10mm}
+  {\huge\bfseries \foreignlanguage{english}{\getTitle{}}}
+  }
+  \makeatother
 
   \vspace{15mm}
   \begin{tabular}{l l}
@@ -30,8 +41,8 @@
     Submission Date: & \getSubmissionDate{} \\
   \end{tabular}
 
-  \IfFileExists{logos/faculty.pdf}{%
+  \IfFileExists{logos/faculty.png}{%
     \vfill{}
-    \includegraphics[height=20mm]{logos/faculty.pdf}
+    \includegraphics[height=20mm]{logos/faculty.png}
   }{}
 \end{titlepage}

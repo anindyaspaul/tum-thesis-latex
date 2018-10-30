@@ -10,12 +10,12 @@
   \centering
 
   \IfFileExists{logos/tum.pdf}{%
-    \includegraphics[height=15mm]{logos/tum.pdf}
+    \includegraphics[height=20mm]{logos/tum.pdf}
   }{%
     \vspace*{20mm}
   }
 
-  \vspace{10mm}
+  \vspace{5mm}
   {\huge\MakeUppercase{\getFaculty{}}}\\
 
   \vspace{5mm}
@@ -25,13 +25,17 @@
   {\Large \getDoctype{}}
 
   \vspace{15mm}
+  \makeatletter
+  \ifthenelse{\pdf@strcmp{\languagename}{english}=0}
   {\huge\bfseries \getTitle{}}
+  {\huge\bfseries \getTitleGer{}}
+  \makeatother
 
   \vspace{15mm}
   {\LARGE \getAuthor{}}
 
-  \IfFileExists{logos/faculty.pdf}{%
+  \IfFileExists{logos/faculty.png}{%
     \vfill{}
-    \includegraphics[height=20mm]{logos/faculty.pdf}
+    \includegraphics[height=20mm]{logos/faculty.png}
   }{}
 \end{titlepage}
